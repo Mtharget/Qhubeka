@@ -216,6 +216,38 @@
 
 
 
+      <script>
+        // JavaScript for "More Info" button functionality
+        document.querySelectorAll('.more-info-btn').forEach((button) => {
+            button.addEventListener('click', function () {
+                const card = this.closest('.team-card');
+                card.classList.toggle('show-description');
+                const description = card.querySelector('.team-description');
+
+                if (card.classList.contains('show-description')) {
+                    description.style.maxHeight = description.scrollHeight + 'px';
+                } else {
+                    description.style.maxHeight = '0px';
+                }
+            });
+        });
+
+        // Optional: Smooth Scroll functionality to Team Section when navigating to it
+        document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute("href")).scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            });
+        });
+
+    </script>
+
+
+
     <script>
         const toggleBtn = document.querySelector('.toggle-btn');
         const navLinks = document.querySelector('.nav-links');
