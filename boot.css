@@ -9,6 +9,8 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: #fff;
+        overflow-x: hidden;
+
 }
 
 /* Top Bar */
