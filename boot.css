@@ -1,0 +1,1073 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #fff;
+}
+
+/* Top Bar */
+.top-bar {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.top-bar .contact-info span {
+    font-size: 14px;
+    margin-right: 20px;
+    display: inline-block;
+    /* color: #ddd; */
+    color: navy;
+}
+
+.top-bar .contact-info i {
+    color: navy;
+    margin-right: 5px;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    /* background: rgba(0, 0, 0, 0.8); */
+    background-color: black;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.navbar .logo img {
+    height: 60px;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    padding: 5px 10px;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: navy;
+    transform: scale(1.1);
+}
+
+.nav-links .btn {
+    background: linear-gradient(90deg, #00c6ff, navy);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.nav-links .btn:hover {
+    background: linear-gradient(90deg, #0072ff, navy);
+    box-shadow: 0 4px 15px rgba(0, 198, 255, 0.5);
+    color: #fff;
+}
+
+/* Toggle Button */
+.toggle-btn {
+    display: none;
+    font-size: 25px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    z-index: 2000;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    transition: transform 0.5s ease, top 0.5s ease, right 0.5s ease;
+}
+
+/* Navbar Links */
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: black;
+    /* background: rgba(0, 0, 0, 0.9); */
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+    gap: 15px;
+    text-align: center;
+    z-index: 999;
+    /* Make navbar unscrollable */
+    animation: slideIn 0.8s ease-out;
+    /* Animation for the navbar buttons */
+}
+
+/* .nav-links .active {
+    margin-top: 1520px;
+
+} */
+
+/* Cool Animation for Nav Links */
+.nav-links.active li {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Start off-screen */
+    animation: fadeInUp 0.8s forwards;
+    /* Animation to fade and move up */
+}
+
+.nav-links.active li:nth-child(1) {
+    animation-delay: 0.1s;
+    /* Delay each item a bit */
+}
+
+.nav-links.active li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.nav-links.active li:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.nav-links.active li:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.nav-links.active li:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+/* Keyframes for slideIn */
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Keyframes for fadeInUp */
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+/* Hero Section */
+.hero {
+    background-image: url('./images/Hero.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    opacity: 0;
+    /* Initially hidden */
+    animation: fadeInHero 3s ease-out forwards;
+    /* Fade-in animation for hero */
+}
+
+/* Fade-In Animation for Hero Section */
+@keyframes fadeInHero {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    /* Dark overlay */
+    z-index: 1;
+}
+
+/* Glass Card Styling */
+.hero .glass-card {
+    background: transparent;
+    border-radius: 20px;
+    padding: 30px 40px;
+    text-align: left;
+    z-index: 2;
+    /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37); */
+    opacity: 0;
+    /* Initially hidden */
+    animation: fadeInContent 2s ease-out forwards 1s;
+    /* Content fade-in with delay */
+}
+
+/* Fade-In Animation for Glass Card */
+@keyframes fadeInContent {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Hero Card Heading */
+.hero .glass-card h1 {
+    font-size: 3rem;
+    color: navy;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+    margin-bottom: 15px;
+}
+
+/* Hero Card Paragraph */
+.hero .glass-card p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #f0f0f0;
+    margin-bottom: 20px;
+}
+
+/* Call to Action Button */
+.hero .glass-card .btn-cta {
+    background: linear-gradient(90deg, #00c6ff, navy);
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* Hover Effects for CTA Button */
+.hero .glass-card .btn-cta:hover {
+    background: linear-gradient(90deg, #0072ff, navy);
+    box-shadow: 0 5px 20px rgba(0, 198, 255, 0.5);
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .toggle-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero .glass-card {
+        padding: 20px 30px;
+    }
+
+    .hero .glass-card h1 {
+        font-size: 2rem;
+    }
+
+    .hero .glass-card p {
+        font-size: 1rem;
+    }
+}
+
+
+/* Fade-out effect when closing the navbar */
+.nav-links.fade-out {
+    animation: fadeOut 2s forwards;
+    /* Apply fade-out animation */
+}
+
+/* Keyframes for fadeOut */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .toggle-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0;
+        gap: 15px;
+    }
+
+    .hero .glass-card {
+        padding: 20px 30px;
+    }
+
+    .hero .glass-card h1 {
+        font-size: 2rem;
+    }
+
+    .hero .glass-card p {
+        font-size: 1rem;
+    }
+}
+
+/* Introduction Section Styling */
+.intro-section {
+    padding: 80px 10%;
+    background: #f4f4f4;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.intro-container {
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.intro-section h1 {
+    font-size: 3rem;
+    color: navy;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeUp 1.5s ease-in-out forwards;
+    animation-delay: 0.2s;
+}
+
+.intro-section .intro-subtitle {
+    font-size: 1.5rem;
+    color: navy;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeUp 1.5s ease-in-out forwards;
+    animation-delay: 0.4s;
+}
+
+.intro-section .intro-text {
+    font-size: 1.1rem;
+    color: #000;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeUp 1.5s ease-in-out forwards;
+    animation-delay: 0.6s;
+    margin-bottom: 50px;
+}
+
+/* Hide the extra content by default */
+.hidden-text {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Style for the Read More button */
+.read-more-btn {
+    background-color: navy;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.9s ease-in-out
+}
+
+.read-more-btn:hover {
+    background-color: transparent;
+    border: 1px solid navy;
+    color: navy;
+}
+
+/* Animation Keyframes */
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .intro-section {
+        padding: 60px 5%;
+    }
+
+    .intro-container {
+        max-width: 100%;
+    }
+
+    .intro-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .intro-section .intro-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .intro-section .intro-text {
+        font-size: 1rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* SERVICES */
+
+/* General Styles */
+.services {
+    padding: 80px 10%;
+    /* background-color: #f4f4f4; */
+    position: relative;
+    z-index: 1;
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.services-header h1 {
+    font-size: 3rem;
+    color: navy;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.services-header p {
+    font-size: 1.2rem;
+    color: navy;
+    opacity: 0.8;
+    max-width: 80%;
+    margin: 0 auto;
+    transition: opacity 0.3s ease;
+}
+
+/* Container for service cards */
+.services-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+/* Service Card Styles */
+.service-card {
+    flex: 1 1 calc(40% - 20px);
+    border-radius: 15px;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    color: navy;
+    /* Ensure text inside service cards is dark */
+}
+
+
+
+.service-card h2 {
+    font-size: 2rem;
+    color: navy;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.service-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-card ul li {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.service-card ul li i {
+    margin-right: 15px;
+    color: navy;
+    font-size: 1.3rem;
+}
+
+.service-card ul li:hover {
+    color: navy;
+    transform: scale(1.05);
+}
+
+/* Central Image Styling */
+.service-image {
+    flex: 1 1 calc(25% - 20px);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.service-image img {
+    max-width: 100%;
+    /* border-radius: 50%; */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease;
+}
+
+
+
+/* Service Card Logo */
+.service-logo {
+    position: absolute;
+    /* Positioning the logo */
+    bottom: 10px;
+    /* Adjust distance from the bottom */
+    right: 5px;
+    /* Adjust distance from the right side */
+    z-index: 2;
+}
+
+.service-logo img {
+    width: 60px;
+    /* Adjust size */
+    height: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Add hover animation */
+.service-logo img:hover {
+    transform: scale(1.1);
+    /* Slight zoom effect */
+    opacity: 0.8;
+    /* Slight fade on hover */
+}
+
+/* Scroll Animation */
+[data-aos="fade-right"],
+[data-aos="fade-left"],
+[data-aos="fade-up"] {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[data-aos="fade-right"] {
+    transform: translateX(-50px);
+}
+
+[data-aos="fade-left"] {
+    transform: translateX(50px);
+}
+
+[data-aos="fade-up"] {
+    transform: translateY(50px);
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .services-container {
+        flex-direction: column;
+    }
+
+    .service-card,
+    .service-image {
+        flex: 1 1 100%;
+        margin: 20px 0;
+    }
+
+    .service-image img {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-header h1 {
+        font-size: 2.4rem;
+    }
+
+    .service-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .service-card ul li {
+        font-size: 1rem;
+    }
+
+    .service-image img {
+        max-width: 100%;
+    }
+}
+
+
+
+
+/* Team Section Styling */
+.team-section {
+    padding: 60px 10%;
+    background-color: #fff;
+    text-align: center;
+}
+
+.team-header h1 {
+    font-size: 2.5rem;
+    color: navy;
+}
+
+.team-header p {
+    font-size: 1.2rem;
+    color: navy;
+    margin-bottom: 30px;
+}
+
+/* Team Container */
+.team-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    justify-items: center;
+}
+
+.team-card {
+    padding: 20px;
+    border-radius: 12px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    width: 100%;
+    max-width: 300px;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Image Styling */
+.team-img-container {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.team-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 150px;
+}
+
+.team-card:hover {
+    transform: scale(1.1);
+}
+
+/* Info Styling */
+.team-info h3 {
+    font-size: 1.6rem;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.role {
+    font-size: 1.2rem;
+    color: navy;
+    margin-bottom: 15px;
+}
+
+.team-description {
+    display: none;
+    font-size: 1rem;
+    color: navy;
+}
+
+.team-card.show-description .team-description {
+    display: block;
+}
+
+/* Responsive Styling */
+
+/* For tablets (small screens) */
+@media (max-width: 1024px) {
+    .team-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .team-card {
+        max-width: 280px;
+        /* Slightly smaller card width */
+    }
+
+    .team-header h1 {
+        font-size: 2rem;
+        /* Reduce header size */
+    }
+
+    .team-header p {
+        font-size: 1rem;
+        /* Adjust paragraph size */
+    }
+
+    .team-info h3 {
+        font-size: 1.4rem;
+        /* Slightly smaller font for the name */
+    }
+
+    .role {
+        font-size: 1rem;
+        /* Slightly smaller font for the role */
+    }
+
+    .team-description {
+        font-size: 0.9rem;
+        /* Smaller font for the description */
+    }
+}
+
+/* For mobile devices (phones) */
+@media (max-width: 768px) {
+    .team-container {
+        grid-template-columns: 1fr;
+        /* Single column for mobile */
+        gap: 20px;
+    }
+
+    .team-card {
+        max-width: 100%;
+        /* Full width for cards */
+    }
+
+    .team-header h1 {
+        font-size: 1.8rem;
+        /* Reduce font size */
+    }
+
+    .team-header p {
+        font-size: 0.9rem;
+        /* Reduce font size */
+    }
+
+    .team-info h3 {
+        font-size: 1.3rem;
+        /* Smaller name font */
+    }
+
+    .role {
+        font-size: 1rem;
+        /* Slightly smaller role text */
+    }
+
+    .team-description {
+        font-size: 0.9rem;
+        /* Smaller font for the description */
+    }
+}
+
+/* For very small mobile devices (extra small phones) */
+@media (max-width: 480px) {
+    .team-section {
+        padding: 40px 5%;
+        /* Adjust padding */
+    }
+
+    .team-header h1 {
+        font-size: 1.6rem;
+        /* Even smaller header for very small screens */
+    }
+
+    .team-header p {
+        font-size: 0.85rem;
+        /* Adjust text size */
+    }
+
+    .team-info h3 {
+        font-size: 1.2rem;
+        /* Smaller font size for the name */
+    }
+
+    .role {
+        font-size: 0.9rem;
+        /* Reduce role size */
+    }
+
+    .team-description {
+        font-size: 0.8rem;
+        /* Smaller description font */
+    }
+}
+
+.more-info-btn {
+    padding: 10px 20px;
+    background-color: navy;
+    color: white;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.more-info-btn:hover {
+    /* background-color: navy; */
+    background-color: transparent;
+    border-radius: 60px;
+    color: navy;
+    border: 1px solid navy;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .team-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* Enhanced Footer Styling */
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 50px 10%;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-links,
+.footer-contact {
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+    min-width: 250px;
+    /* Ensure minimum width for readability */
+}
+
+.footer-links h3,
+.footer-contact h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: navy;
+}
+
+.footer-links ul,
+.footer-contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li,
+.footer-contact ul li {
+    margin: 12px 0;
+    font-size: 1rem;
+}
+
+.footer-links ul li a,
+.footer-contact ul li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    padding-left: 0;
+}
+
+.footer-links ul li a:hover,
+.footer-contact ul li a:hover {
+    color: navy;
+    padding-left: 8px;
+}
+
+.footer-contact ul li i,
+.footer-links ul li i {
+    margin-right: 10px;
+    color: navy;
+}
+
+.footer-logo {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.footer-logo-img {
+    margin-top: 50px;
+    max-width: 150px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.footer-logo-img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    background-color: #0d78e4;
+    padding: 15px;
+    font-size: 0.9rem;
+    color: #bdc3c7;
+}
+
+/* AOS Animation */
+.footer[data-aos="fade-up"] {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.footer.aos-animate {
+    opacity: 1;
+}
+
+/* Media Queries for Responsive Footer */
+@media (max-width: 1024px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-logo {
+        margin-top: 20px;
+    }
+
+    .footer-links,
+    .footer-contact {
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 10px;
+        /* Adjust padding for better spacing */
+    }
+
+    .footer-links ul li,
+    .footer-contact ul li {
+        font-size: 0.9rem;
+        /* Slightly smaller font size for smaller screens */
+    }
+
+    .footer-logo-img {
+        max-width: 120px;
+        /* Adjust logo size on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links,
+    .footer-contact {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .footer-logo-img {
+        max-width: 100px;
+        /* Further adjust logo size for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 30px 5%;
+        /* Adjust padding for very small screens */
+    }
+
+    .footer-links h3,
+    .footer-contact h3 {
+        font-size: 1.2rem;
+        /* Reduce header size for mobile screens */
+    }
+
+    .footer-links ul li,
+    .footer-contact ul li {
+        font-size: 0.85rem;
+        /* Further reduce font size for small devices */
+    }
+
+    .footer-bottom {
+        font-size: 0.8rem;
+        /* Smaller text for footer bottom */
+    }
+}
